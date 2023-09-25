@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const getPosts = async () => {
   const response = await fetch(
@@ -15,7 +16,9 @@ export default function Home() {
   console.log("render", posts);
   const postsDisplay = posts.map((post) => (
     <div key={post.id}>
-      <h2>{post.title}</h2>
+      <Link to={`posts/${post._id}`}>
+        <h2>{post.title}</h2>
+      </Link>
     </div>
   ));
   return (
