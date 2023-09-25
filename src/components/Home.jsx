@@ -13,7 +13,6 @@ export default function Home() {
   useEffect(() => {
     getPosts().then((data) => setPosts(data.posts));
   }, []);
-  console.log("render", posts);
   const postsDisplay = posts.map((post) => (
     <div key={post.id}>
       <Link to={`posts/${post._id}`}>

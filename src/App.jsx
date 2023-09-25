@@ -1,11 +1,12 @@
 import { useState } from "react";
 import Home from "./components/Home";
+import Post from "./components/Post";
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
-  { path: "/posts/:postId", element: <div>h1</div> },
+  { path: "/posts/:postId", element: <Post /> },
 ]);
 function App() {
   return (
