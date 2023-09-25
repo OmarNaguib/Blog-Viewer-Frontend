@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 
 const getPosts = async () => {
-  const response = await fetch("http://localhost:8000/api/posts");
+  const response = await fetch(
+    "http://localhost:8000/api/posts/?isPublished=true"
+  );
   const posts = await response.json();
-  // console.log("new", posts, posts.posts);
   return posts;
 };
 export default function Home() {
