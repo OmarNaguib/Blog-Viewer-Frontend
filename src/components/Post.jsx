@@ -29,6 +29,21 @@ export default function Post() {
       <p>{comment.commentText}</p>
     </div>
   ));
+  async function submitForm(e) {
+      e.preventDefault()
+      const formData= new FormData(e.target)
+
+      let formDataObject = Object.fromEntries(formData.entries());
+      let formDataJsonString = JSON.stringify(formDataObject);
+
+      const response = await fetch(`http://localhost:8000/api/posts/${postId}/comments`,    {
+        body: formDataJsonString,
+        method: "post",   headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+    });
+  }
   return (
     <div className="post">
       <div className="post-content">
@@ -42,6 +57,7 @@ export default function Post() {
         <form
           action={`http://localhost:8000/api/posts/${postId}/comments`}
           method="post"
+          onSubmit={submitForm}
         >
           <div>
             <label htmlFor="author">name:</label>
