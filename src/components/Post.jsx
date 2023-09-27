@@ -24,7 +24,7 @@ export default function Post() {
     getComments();
   }, []);
   const commentsDisplay = comments.map((comment) => (
-    <div key={comment.id}>
+    <div key={comment._id}>
       <h3>{comment.author}</h3>
       <p>{comment.commentText}</p>
     </div>

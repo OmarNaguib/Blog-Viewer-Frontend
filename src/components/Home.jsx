@@ -14,7 +14,7 @@ export default function Home() {
     getPosts().then((data) => setPosts(data.posts));
   }, []);
   const postsDisplay = posts.map((post) => (
-    <div key={post.id}>
+    <div key={post._id}>
       <Link to={`posts/${post._id}`}>
         <h2>{post.title}</h2>
       </Link>
